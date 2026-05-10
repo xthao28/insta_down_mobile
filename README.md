@@ -1,16 +1,17 @@
-# insta_down_mobile
+## Tổng quan cấu trúc dự án
 
-A new Flutter project.
+Dự án `mobile_base_clean` được tổ chức theo mô hình Clean Architecture, với cấu trúc thư mục rõ ràng nhằm tách biệt các thành phần và chức năng khác nhau của ứng dụng. Cấu trúc thư mục chính bao gồm:
 
-## Getting Started
+- **assets/**: Chứa tài nguyên như icons, fonts, locales,...
+- **lib/**: Thư mục chính chứa mã nguồn ứng dụng Flutter:
+	- **core/**: Các thành phần cốt lõi (config, data, domain, presentation, widgets, navigation).
+	- **features/**: Chứa các module tính năng như home, login, splash,... mỗi module gồm các phần data, domain, presentation.
+	- **generated/**: File sinh tự động (ví dụ: locales.g.dart).
+	- **routes/**: Định nghĩa router (app_pages.dart, app_routes.dart).
+	- **shared/**: Chứa các thành phần dùng chung (constants, entity, exceptions, mappers, model, themes, utils, widgets).
 
-This project is a starting point for a Flutter application.
+Mỗi module trong `features/` đều tuân thủ mô hình phân lớp rõ ràng: data (dữ liệu), domain (logic nghiệp vụ), presentation (giao diện).
 
-A few resources to get you started if this is your first Flutter project:
+Các thành phần dùng chung được đặt trong `shared/` giúp tái sử dụng và quản lý dễ dàng.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Thư mục `core/` chứa các cấu hình, luồng điều hướng, binding, controller và các widget nền tảng cho toàn bộ ứng dụng.
